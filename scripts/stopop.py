@@ -1,7 +1,5 @@
-from __future__ import print_function
 import math
 import random
-from collections import defaultdict
 from simanneal import Annealer
 import csv
 from stop import *
@@ -27,7 +25,7 @@ class StopOp(Annealer):
             stoplist[a].setFreq(freq+1)
         else:
             stoplist[a].setFreq(freq-1)
-        print(f'a: {a}, b: {b}, freq: {freq}, newFreq: {stoplist[a].getFreq()}')
+#        print(f'a: {a}, b: {b}, freq: {freq}, newFreq: {stoplist[a].getFreq()}')
 
         return self.energy() - initial_energy
 
