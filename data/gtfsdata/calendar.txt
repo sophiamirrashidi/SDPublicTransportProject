@@ -1,0 +1,2 @@
+service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
+7978725-0000010-25,1,1,1,1,1,1,1,20230220,20230220

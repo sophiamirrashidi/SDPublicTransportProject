@@ -1,0 +1,17 @@
+fare_product_id,eligible_cap_id,fare_container_id,duration_amount,duration_unit,duration_type,offset_amount,offset_unit,service_id,timeframe_id,area_id,network_id,cap_amount,currency
+day_pass,,pronto_physical,1,3,2,,,,,,,6,USD
+day_pass_discount,,pronto_physical,1,3,2,,,,,,,3,USD
+day_pass_premium,,pronto_physical,1,3,2,,,,,,,12,USD
+day_pass_premium_discount,,pronto_physical,1,3,2,,,,,,,6,USD
+regional_monthly,,pronto_physical,1,5,1,,,,,,,72,USD
+regional_monthly_discount,,pronto_physical,1,5,1,,,,,,,23,USD
+regional_monthly_premium,,pronto_physical,1,5,1,,,,,,,100,USD
+regional_monthly_premium_discount,,pronto_physical,1,5,1,,,,,,,32,USD
+day_pass,,pronto_digital,1,3,2,,,,,,,6,USD
+day_pass_discount,,pronto_digital,1,3,2,,,,,,,3,USD
+day_pass_premium,,pronto_digital,1,3,2,,,,,,,12,USD
+day_pass_premium_discount,,pronto_digital,1,3,2,,,,,,,6,USD
+regional_monthly,,pronto_digital,1,5,1,,,,,,,72,USD
+regional_monthly_discount,,pronto_digital,1,5,1,,,,,,,23,USD
+regional_monthly_premium,,pronto_digital,1,5,1,,,,,,,100,USD
+regional_monthly_premium_discount,,pronto_digital,1,5,1,,,,,,,32,USD

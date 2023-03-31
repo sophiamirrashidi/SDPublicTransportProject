@@ -1,0 +1,3 @@
+fare_container_id,fare_container_name,minimum_initial_purchase,amount,currency,rider_category_id
+pronto_physical,PRONTO Card (Physical),5,2,USD,
+pronto_digital,PRONTO Card (Digital),0,0,USD,

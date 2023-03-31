@@ -1,0 +1,8 @@
+rider_category_id,rider_category_name,min_age,max_age,eligibility_url
+senior,Seniors (Age 65 and Over),65,,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
+senior_2,"Seniors (Born on or before September 1, 1959)",,,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
+medicare,Medicare Recipients,,,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
+disabled,Persons with Disabilities,,,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
+college,College Students,,,https://www.sdmts.com/fares-passes-pass-programs/college-passes
+youth,Youth (Ages 6-18),6,18,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
+children,Children (Age 5 and Under),,5,https://www.sdmts.com/fares-passes/reduced-fares-and-passes
