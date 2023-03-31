@@ -6,12 +6,40 @@ from simanneal import Annealer
 import csv
 from stop import *
 
-#class StopOp(Annealer):
+class StopOp(Annealer):
 
-#    def move(self):
+    def __init__(self, stoplist):
+        self.stoplist = stoplist
+        super(StopOp, self).__init__(stoplist)  # important!
+        
+    def move(self):
+        initial_energy = self.energy()
 
-#   def energy(self):
-    
+        a = random.randint(0, len(self.stoplist) - 1)
+        b = random.randint(0, 9)
+        freq = stoplist[a].getFreq()
+
+        if(freq < 3):
+            pass
+        elif(freq > 8):
+            pass
+        elif(b > 5):
+            stoplist[a].setFreq(freq+1)
+        else:
+            stoplist[a].setFreq(freq-1)
+        print(f'a: {a}, b: {b}, freq: {freq}, newFreq: {stoplist[a].getFreq()}')
+
+        return self.energy() - initial_energy
+
+
+    def energy(self):
+        tot = 0
+        for stop in stoplist:
+            tot += stop.getImportance()* stop.getFreq()
+
+#        print(tot)
+
+        return tot
 
 
 
@@ -48,6 +76,19 @@ if __name__ == "__main__":
             imp = (maximum - weight)/(total)
             stop.setImportance(imp)
             print(stop)
+
+    stopop = StopOp(stoplist)
+    stopop.set_schedule(stopop.auto(minutes=0.2))
+    stopop.copy_strategy = "deepcopy"
+    finalstate, e = stopop.anneal()
+
+    for stop in finalstate:
+        print(stop)
+
+
+    
+
+    
 
 
 
