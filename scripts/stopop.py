@@ -52,28 +52,11 @@ if __name__ == "__main__":
             if linecount == 0:
                 print(f'Column names are {", ".join(row)}')
             else:
-                stop = Stop(row[0], row[1], row[2], row[3], row[4])
+                stop = Stop(row[0], row[1], row[2], row[3], row[6], row[10], row[11])
                 stoplist.append(stop)                
             linecount += 1
         print(f'Processed {linecount} lines.')
 
-        total = 0
-        maximum = 0
-        for stop in stoplist:
-            weight = stop.getWeight()
-#            print(f'weight: {weight}')
-            if weight > maximum:
-                maximum = weight
-            total += weight
-
-        print(f'total: {total}, max: {maximum}')
-
-
-        for stop in stoplist:
-            weight = stop.getWeight()
-            imp = (maximum - weight)/(total)
-            stop.setImportance(imp)
-            print(stop)
 
     stopop = StopOp(stoplist)
     stopop.set_schedule(stopop.auto(minutes=0.2))

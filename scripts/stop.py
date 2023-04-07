@@ -1,13 +1,12 @@
 class Stop:
-    def __init__(self, stopid, blockid, routes, income, pop):
+    def __init__(self, stopid, blockid, routes, income, pop, importance, freq):
         self.stopid = int(stopid)
         self.blockid = blockid
         self.routes = routes
         self.income = int(income)
         self.pop = int(pop)
-        self.importance = 0
-        self.freq = 5
-        self.weight = self.income/10 + self.pop*5
+        self.importance = importance
+        self.freq = freq
 
     def setStopid(self, stopid):
         self.stopid = stopid
@@ -48,13 +47,10 @@ class Stop:
     def getImportance(self):
         return self.importance
 
-    def getWeight(self):
-        return self.weight
-
     def getFreq(self):
         return self.freq
     
     def __str__(self):
-        return f'stopid: {self.stopid}, blockid: {self.blockid}, routes: {self.routes}, income: {self.income}, pop: {self.pop}, freq: {self.freq}, weight: {self.weight}, importance: {self.importance}'
+        return f'stopid: {self.stopid}, blockid: {self.blockid}, routes: {self.routes}, income: {self.income}, pop: {self.pop}, freq: {self.freq}, importance: {self.importance}'
                 
     
