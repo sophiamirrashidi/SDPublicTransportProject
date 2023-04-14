@@ -1,11 +1,11 @@
 class Stop:
     def __init__(self, stopid, blockid, routes, income, pop, importance, freq):
-        self.stopid = int(stopid)
+        self.stopid = stopid
         self.blockid = blockid
         self.routes = routes
-        self.income = int(income)
-        self.pop = int(pop)
-        self.importance = importance
+        self.income = income
+        self.pop = pop
+        self.importance = float(importance)
         self.freq = freq
 
     def setStopid(self, stopid):
