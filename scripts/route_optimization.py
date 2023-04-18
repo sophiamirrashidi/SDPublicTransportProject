@@ -6,6 +6,7 @@ import numpy as np
 from collections import defaultdict
 from simanneal import Annealer
 import csv
+import latlong.csv
 from pyproj import Geod
 
 
