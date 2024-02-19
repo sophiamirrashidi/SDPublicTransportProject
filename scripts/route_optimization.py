@@ -36,7 +36,7 @@ class TravellingSalesmanProblem(Annealer):
         super(TravellingSalesmanProblem, self).__init__(state)  # important!
 
     def move(self):
-        """Swaps two cities in the route."""
+        """Swaps two stops in the route."""
         initial_energy = self.energy()
 
         a = random.randint(0, len(self.state) - 1)
