@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
     previousCoordinate = None
     for stop in state:
-        coordinate = cities[stop]
+        coordinate = stops[stop]
         lat = coordinate[0]
         lon = coordinate[1]
 
