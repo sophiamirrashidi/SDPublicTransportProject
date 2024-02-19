@@ -30,15 +30,13 @@ class TravellingSalesmanProblem(Annealer):
     """Test annealer with a travelling salesman problem.
     """
 
-    # pass extra data (the distance matrix) into the constructor
+    # pass the distance matrix into the constructor
     def __init__(self, state, distance_matrix):
         self.distance_matrix = distance_matrix
         super(TravellingSalesmanProblem, self).__init__(state)  # important!
 
     def move(self):
         """Swaps two cities in the route."""
-        # no efficiency gain, just proof of concept
-        # demonstrates returning the delta energy (optional)
         initial_energy = self.energy()
 
         a = random.randint(0, len(self.state) - 1)
@@ -72,13 +70,12 @@ if __name__ == '__main__':
             linecount += 1
         print(f'Processed {linecount} lines.')
 
-  #  print(cities)
 
-    # initial state, a randomly-ordered itinerary
+    # initial state
     init_state = list(cities)
     random.shuffle(init_state)
 
-    # create a distance matrix
+    # create distance matrix
     distance_matrix = defaultdict(dict)
     for ka, va in cities.items():
         for kb, vb in cities.items():
@@ -86,12 +83,11 @@ if __name__ == '__main__':
 
     tsp = TravellingSalesmanProblem(init_state, distance_matrix)
     tsp.set_schedule(tsp.auto(minutes=0.2))
-    # since our state is just a list, slice is the fastest way to copy
     tsp.copy_strategy = "slice"
     state, e = tsp.anneal()
 
     while state[0] != '12804':
-        state = state[1:] + state[:1]  # rotate NYC to start
+        state = state[1:] + state[:1] 
 
     print()
     print("%i mile route:" % e)
