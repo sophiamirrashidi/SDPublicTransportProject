@@ -56,7 +56,7 @@ class TravellingSalesmanProblem(Annealer):
 
 if __name__ == '__main__':
 
-    cities = {}
+    stops = {}
 
     with open('latlong.csv', newline='') as csvfile:
         csvreader = csv.reader(csvfile, delimiter = ',')
@@ -67,19 +67,19 @@ if __name__ == '__main__':
             else:
                 k = row[0]
                 v = (float(row[1]), float(row[2]))
-                cities[k] = v
+                stops[k] = v
             linecount += 1
         print(f'Processed {linecount} lines.')
 
 
     # initial state
-    init_state = list(cities)
+    init_state = list(stops)
     random.shuffle(init_state)
 
     # create distance matrix
     distance_matrix = defaultdict(dict)
-    for ka, va in cities.items():
-        for kb, vb in cities.items():
+    for ka, va in stops.items():
+        for kb, vb in stops.items():
             distance_matrix[ka][kb] = 0.0 if kb == ka else mhdist(va, vb)
 
     tsp = TravellingSalesmanProblem(init_state, distance_matrix)
