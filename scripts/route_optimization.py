@@ -19,7 +19,7 @@ def mhdist(a, b):
     gc1 = g.inv(lons1=lng1, lats1=lat1, lons2=lng2, lats2=lat1) # calculate East-West distance
     gc2 = g.inv(lng2, lat1, lng2, lat2) # calculate North-South distance
 
-    mhdist = gc1[2] + gc2[2]
+    mhdist = gc1[2] + gc2[2] # add together to get MH distance
 
     return mhdist
 
@@ -57,11 +57,13 @@ if __name__ == '__main__':
 
     stops = {}
 
+    # read in stop data 
+    
     with open('latlong.csv', newline='') as csvfile:
         csvreader = csv.reader(csvfile, delimiter = ',')
         linecount = 0
         for row in csvreader:
-            if linecount > 78:
+            if linecount > 78: # 78 total stops
                 break
             else:
                 k = row[0]
@@ -71,24 +73,30 @@ if __name__ == '__main__':
         print(f'Processed {linecount} lines.')
 
 
-    # initial state
-    init_state = list(stops)
-    random.shuffle(init_state)
-
-    # create distance matrix
-    distance_matrix = defaultdict(dict)
+    # initial state list contains tuples of stop_id, latitude, longitude from the stops dictionary
+    init_state = list(stops)  
+    random.shuffle(init_state) # shuffle initial state
+ 
+    """
+    create distance matrix: nested dictionary structure; key is a stop; 
+    value is a dictionary with key being all other stops, values being distances to stops 
+    """
+    
+    distance_matrix = defaultdict(dict) 
     for ka, va in stops.items():
         for kb, vb in stops.items():
             distance_matrix[ka][kb] = 0.0 if kb == ka else mhdist(va, vb)
 
-    tsp = TravellingSalesmanProblem(init_state, distance_matrix)
-    tsp.set_schedule(tsp.auto(minutes=0.2))
+    tsp = TravellingSalesmanProblem(init_state, distance_matrix) # initialize TSP with randomized state and the generated distance matrix
+    tsp.set_schedule(tsp.auto(minutes=0.2)) # decrease temp every 0.2 minutes 
     tsp.copy_strategy = "slice"
-    state, e = tsp.anneal()
+    state, e = tsp.anneal() # perform simulated annealing
 
-    while state[0] != '12804':
+    while state[0] != '12804':  # start from stop 12804
         state = state[1:] + state[:1] 
 
+    # print solution 
+    
     print()
     print("%i mile route:" % e)
     print(" ➞  ".join(state))
