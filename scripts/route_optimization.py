@@ -14,10 +14,10 @@ def mhdist(a, b):
     lng1 = a[1]
     lat2 = b[0]
     lng2 = b[1]
-    g = Geod(ellps='clrk66')
+    g = Geod(ellps='clrk66') #initialize a Geod to perform geodesic calculations for MH distance
 
     gc1 = g.inv(lons1=lng1, lats1=lat1, lons2=lng2, lats2=lat1)
-    gc2 = g.inv(lng2, lat1, lng2, lat2)
+    gc2 = g.inv(lng1, lat1, lng2, lat2)
 
     mhdist = gc1[2] + gc2[2]
 
