@@ -28,6 +28,7 @@ def mhdist(a, b):
 class TravellingSalesmanProblem(Annealer):
 
     """Uses the annealer from simmaneal to find the optimal route between bus stops
+    
     """
 
     # pass the distance matrix into the constructor
