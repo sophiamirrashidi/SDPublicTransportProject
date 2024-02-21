@@ -175,13 +175,13 @@ coords = [(-117.146,32.749),
 
 for coord in originalStops:
     ax.plot(coord[0], coord[1], marker='o', markersize=5, color='red', transform=ccrs.Geodetic())
-'''
+
 # Connect consecutive points with lines
 for i in range(len(coords)-1):
     start = coords[i]
     end = coords[i+1]
     ax.plot([start[0], end[0]], [start[1], end[1]], color='blue', linewidth=2, transform=ccrs.Geodetic())
-'''
+
 # Plot the streets
 ax.add_geometries(streets['geometry'], crs=ccrs.PlateCarree(), edgecolor='gray', facecolor='none')
 
